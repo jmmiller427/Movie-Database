@@ -1,0 +1,111 @@
+{% extends "bootstrap/base.html" %}
+
+{% block doc %}
+
+	{% block head %}
+
+		<meta charset="UTF-8">
+		<title>Modify</title>
+		{{super()}}
+		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+		<link rel="stylesheet" href="../static/styles/style1.css">
+
+	{% endblock %}
+
+	{% block body %}
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="/">MovieDB</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  	<ul class="nav navbar-nav"></ul>
+			  <ul class="nav navbar-nav navbar-right">
+				{% if session['uname'] %}
+					<li><p class="navbar-text">Hi, {{session['name']}}</p></li>
+					<li><a href="/logout">Logout</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+
+		<form action="" method="POST">
+			<center><div class="container" style="margin: 0 auto, width:85%">
+				<div class="jumbotron">
+					<div class="login">
+						{% if session['movies'] %}
+
+							<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Title" name="title" value="{{session['movies'][0][0]}}"><br>
+							<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Duration" name="duration" value="{{session['movies'][2][0]}}"><br>
+							<input type="date" class="form-control" style="width:70%" id='datetimepicker1' placeholder="Release Date" name="r_date" value="{{session['movies'][3][0]}}"><br>
+
+							{% for i in session['movies'][1] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Language" name="language" value="{{i}}"><br>
+							{% endfor %}
+
+
+							{% for i in session['movies'][10] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Genre" name="genre" value="{{i}}"><br>
+							{% endfor %}
+
+
+							{% for i in session['movies'][11] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Tags" name="tags" value="{{i}}"><br>
+							{% endfor %}
+
+							{% for i in session['movies'][6] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Director" name="director" value="{{i}}"><br>
+							{% endfor %}
+
+
+							{% for i in session['movies'][7] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Producer" name="producer" value="{{i}}"><br>
+							{% endfor %}
+
+
+							{% for i in session['movies'][8] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Screen Writer" name="screen" value="{{i}}"><br>
+							{% endfor %}
+
+
+							{% for i in session['movies'][5] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Actor" name="actor" value="{{i}}"><br>
+							{% endfor %}
+
+							{% for i in session['movies'][9] %}
+								<input type="text" class="form-control" style="width:70%" id="inputDefault" placeholder="Editor" name="editor" value="{{i}}"><br>
+							{% endfor %}
+
+							<textarea name="summary" class="form-control" style="width:70%" id="inputLarge" placeholder="Summary" cols="40" rows="8" class="summary" value="Summary">{{session['movies'][4][0]}}</textarea>
+						{% endif %}
+						<input type="submit" style="width:20%" class="btn btn-info" name="btn" value="Modify">
+						<input type="submit" style="width:20%" class="btn btn-danger" name="btn" value="Delete">
+					</div>
+				</div>
+			</div></center>
+		</form>
+
+		{% if session['error'] %}
+			<p class="error"><strong>Error:</strong> {{ session['error'] }}
+		{% endif %}
+
+	{% endblock %}
+
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+	<link rel="stylesheet"
+	  href="./static/css/flat_bootstrap.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}

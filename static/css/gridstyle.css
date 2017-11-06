@@ -1,0 +1,132 @@
+* {
+	box-sizing: border-box;
+}
+
+.body{
+	background-image: url("../images/blurry.jpg");
+	background-size: cover;
+}
+
+.centered_logo {
+	/*border: 1px solid red;*/
+	padding: 0px;
+	text-align: center;
+	font-family: 'Palanquin Dark', sans-serif;
+	font-size: 4em;
+	color: #eee;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+
+#sidebar_logo {
+	/*border: 1px solid red;*/
+	padding: 0px;
+	margin-top: 15px;
+	margin: 0px;
+	text-align: left;
+	font-family: 'Palanquin Dark', sans-serif;
+	font-size: 2em;
+	color: #eee;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* I added this part */
+
+
+#side_search_bar input[type=text]{
+	margin-left:5%;
+	width: 60%;
+	height: 40px;
+	font-size: 20px;
+	color: black;
+}
+
+#side_search_bar input[type=button]{
+	width: 15%;
+	height: 40px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	font-size: 1.3em;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:10%;
+}
+
+
+.search_bar_area{
+	margin-top: 10%;
+}
+
+#search_bar input[type=text]{
+	margin-left:25%;
+	width: 50%;
+	height: 40px;
+	font-size: 20px;
+	color: black;
+}
+
+#search_bar input[type=button]{
+	width: 10%;
+	height: 40px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	font-size: 1.3em;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:45%;
+}
+
+#search_bar input[type=button]:hover{
+	opacity: 0.8;
+}
+
+#search_bar input[type=button]:active{
+	opacity: 0.6;
+}
+
+.topbuttons{
+	margin-left: 80%
+}
+
+.home_button{
+	width: 40%;
+	height: 30px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	font-size: 1em;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:5%;
+}
+/* Till here its all me */
+
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+	/*border: 1px solid red;*/
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}

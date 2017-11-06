@@ -1,0 +1,106 @@
+{% extends "bootstrap/base.html" %}
+
+{% block doc %}
+
+	{% block head %}
+
+		<meta charset="UTF-8">
+		<title>Display</title>
+		{{super()}}
+		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+	{% endblock %}
+
+	{% block body %}
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="/">MovieDB</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  	<ul class="nav navbar-nav"></ul>
+			  <ul class="nav navbar-nav navbar-right">
+				{% if session['uname'] %}
+					<li><p class="navbar-text">Hi, {{session['name']}}</p></li>
+					<li><a href="/logout">Logout</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+
+		<center><div class="input-group">
+			<form action="" method="POST">
+				<div class="input-group-btn">
+					<input type="text" class="form-control" placeholder="Search" name="search" value="{{request.form.search }}">
+					<input type="hidden" name="mod_val" value="No">
+					<button class="btn btn-default" type="button" onclick="this.form.submit();" value="Search">Go!</button>
+					<select style="width:35%" class="form-control" name="Search_By">						
+						<option value="All">All</option>
+						<option value="Movie">Movie</option>
+						<option value="Genre">Genre</option>
+						<option value="Crew">Crew</option>
+						<option value="Tags">Tags</option>
+					</select>
+					<select style="width:35%" class="form-control" name="Sort_By">						
+						<option value="Title(A-Z)">Title(A-Z)</option>
+						<option value="Title(Z-A)">Title(Z-A)</option>
+						<option value="Duration">Duration</option>
+						<option value="Release">Release</option>
+					</select>	
+				</div>
+			</form>
+		</div>
+
+		<div class="display">
+			{% for i in session['movies'] %}
+						<div class="media">
+							<div class="media-left media-top">
+								<img class="media-object" src="../static/images/{{i[0][0]}}.jpg">
+							</div>
+							<div class="media-body">
+								<h2>{{i[0][0]}} ({{i[5][0][0:4]}})</h2>
+
+								<p>Actor(s): |
+								{% for actor in i[1] %}
+									{{actor}} |
+								{% endfor %}</p>
+
+								<p>Director(s): |
+								{% for director in i[2] %}
+									{{director}} |
+								{% endfor %}</p>
+
+								<p> Summary: {{i[4][0]}} </p>
+								<p> Duration: {{i[6][0]}} </p>
+
+								
+									<form action="" method="POST">
+										{% if session['user_type'] == "manager" %}
+											<input type="hidden" name="mod_val" value="{{i[0][0]}}">
+										{% endif %}
+										<input type="button" class="btn btn-info" name="btn" onclick="this.form.submit();" value="Remove Watchlist">
+									</form>
+							</div>
+						</div>
+		</div>
+
+			{% endfor %}
+
+	{% endblock %}
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+	<link rel="stylesheet"
+	  href="./static/css/flat_bootstrap.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}

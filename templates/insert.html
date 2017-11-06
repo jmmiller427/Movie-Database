@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+{% block doc %}
+
+	{% block head %}
+		<meta charset="UTF-8">
+		<title>Insert</title>
+		{{super()}}
+		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+	{% endblock %}
+
+	{% block body %}
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">MovieDB</a>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav"></ul>
+		      <form class="navbar-form navbar-left" role="search" method = "POST"></form>
+		      <ul class="nav navbar-nav navbar-right">
+		        {% if session['uname'] %}
+		        	<li><p class="navbar-text">Hi, {{session['name']}}</p></li>
+  					<li><a href="/logout">Logout</a></li>
+				{% endif %}
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<center><div class="container" style="width:65%">
+			<div class="jumbotron">
+
+				<form action="" method="POST">
+					<div class="login">
+						<input type="text" class="form-control" id="inputDefault" placeholder="Title" name="title" style="width:50%" value="{{request.form.title }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Duration" name="duration" style="width:50%" value="{{request.form.duration }}"><br>
+						<input type="date" class="input-group" id='datetimepicker1' placeholder="Release Date" name="r_date" style="width:30%" value="{{request.form.r_date }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Language" name="language" style="width:50%" value="{{request.form.language }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Genre" name="genre" style="width:50%" value="{{request.form.genre }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Tags" name="tags" style="width:50%" value="{{request.form.tags }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Director" name="director" style="width:50%" value="{{request.form.director }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Producer" name="producer" style="width:50%" value="{{request.form.producer }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Screen Writer" name="screen" style="width:50%" value="{{request.form.screen  }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Actor" name="actor" style="width:50%" value="{{request.form.actor }}"><br>
+						<input type="text" class="form-control" id="inputDefault" placeholder="Editor" name="editor" style="width:50%" value="{{request.form.editor }}"><br>
+						<textarea name="summary" class="form-control" id="inputLarge" placeholder="Summary" style="width:50%" cols="40" rows="8" class="summary"></textarea>      
+						<input type="button" class="btn btn-info dropdown-toggle" style="width:30%" onclick="this.form.submit();" value="Submit">
+					</div>
+				</form>
+
+			</div>
+		</div></center>
+
+		{% if session['error'] %}
+			<div class="alert alert-danger" style="margin:15%" style="width: 25%" role="alert"><center>{{ error }}</center></div>
+		{% endif %}
+
+	{% endblock %}
+
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="./static/css/flat_bootstrap.css">
+{% endblock %}

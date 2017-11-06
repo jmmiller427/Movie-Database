@@ -1,0 +1,179 @@
+.body{
+	background-image: url("../images/blurry.jpg");
+	background-size: cover;
+}
+
+.sitename_other{
+	position: absolute;
+	top: calc(50% - 370px);
+	left: calc(50% - 620px);
+	font-family: 'Palanquin Dark', sans-serif;
+	font-size: 30px;
+	color: #fff;
+	font-weight: 400;
+	padding-bottom: 4px;
+}
+
+.sitename_home{
+	position: absolute;
+	top: calc(50% - 350px);
+	left: calc(50% - 175px);
+	font-family: 'Palanquin Dark', sans-serif;
+	font-size: 40px;
+	color: #fff;
+	font-weight: 400;
+	padding-bottom: 4px;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 100px);
+	left: calc(50% - 137.5px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+}
+
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 16px;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 16px;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=button]{
+	width: 110px;
+	height: 35px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:12px;
+}
+
+.login input[type=date]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 16px;
+	padding: 4px;
+}
+
+textarea{
+	width: 250px;
+	height: 100px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 16px;
+	padding: 4px;
+}
+
+.home_button{
+	position: absolute;
+	top: calc(50% - 300px);
+	left: calc(50% + 375px);
+	width: 110px;
+	height: 30px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:12px;
+}
+
+.search_bar input[type=text]{
+	width: 500px;
+	height: 15px;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 275px);
+	padding: 10px;
+}
+
+.search_bar input[type=button]{
+	position: absolute;
+	padding: 10px;
+	top: calc(50% - 105px);
+	left: calc(50% - 80px);
+	width: 110px;
+	height: 30px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:12px;
+}
+
+.display_search_bar{
+	position: absolute;
+	top: calc(50% - 225px);
+	left: calc(50% - 200px);
+	padding: 10px;
+}
+
+.display_search_bar input[type=text]{
+	width: 500px;
+	height: 25px;
+}
+
+.display_search_bar input[type=button]{
+	width: 110px;
+	height: 30px;
+	background: #2d92bc;
+	border: 1px solid #2d92bc;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	padding: 6px;
+	margin-top: 10px;
+	margin-left:12px;
+}
+
+.display{
+	position: absolute;
+	top: calc(50%);
+	left: calc(50% - 450px);
+	padding: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}

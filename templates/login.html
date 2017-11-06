@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %}
+
+{% block doc %}
+
+	{% block head %}
+
+		<meta charset="UTF-8">
+		<title>Login</title>
+		{{super()}}
+		<link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+	{% endblock %}
+
+	{% block body %}
+
+		<center><div class="container" style="margin: 0 auto">
+			<div class="jumbotron">
+
+				<div class="sitename_other">
+					<center><h1> MovieDB </h1></center>
+				</div>
+				<form action="" method="POST">
+					<div class="login">
+						<input type="text" class="form-control" id="inputDefault" placeholder="Username" name="UserId" value="{{request.form.username }}"><br>
+						<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="Password" value="{{request.form.password }}"><br>
+						<input type="button" class="btn btn-info dropdown-toggle" onclick="this.form.submit();" value="Login"/>
+						<input type="button" class="btn btn-info dropdown-toggle" onclick="window.location.href='/register'" value="Register">
+					</div>
+				</form>		
+
+				{% if session['error'] %}
+					<div class="alert alert-danger" style="margin:15%" style="width: 25%" role="alert"><center>{{ session['error']  }}</center></div>
+				{% endif %}
+
+			</div>
+		</div></center>
+
+	{% endblock %}
+
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="./static/css/flat_bootstrap.css">
+{% endblock %}
